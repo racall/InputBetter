@@ -337,7 +337,7 @@ nonisolated final class FirmwareChainTests: XCTestCase {
     }
 
     func testEsptoolOutputParsing() {
-        XCTAssertEqual(EsptoolRunner.mac(in: "Chip type: ESP32-C3\nMAC: 4c:11:ae:2f:6a:24\nHard resetting"), "4c11ae2f6a24")
+        XCTAssertEqual(EsptoolRunner.mac(in: "Chip type: ESP32-C3\nMAC: 12:34:56:ab:cd:ef\nHard resetting"), "123456abcdef")
         XCTAssertNil(EsptoolRunner.mac(in: "A fatal error occurred"))
         XCTAssertEqual(EsptoolRunner.progress(in: "Writing at 0x00010000 [=====>     ]  35.2% 442368/1251760 bytes")!, 0.352, accuracy: 1e-6)
         XCTAssertNil(EsptoolRunner.progress(in: "Connecting...."))
